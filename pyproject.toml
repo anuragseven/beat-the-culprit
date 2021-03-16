@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "beat_the_culprit"
+version = "0.1.0"
+description = ""
+authors = ["Anurag Tripathi <anuragtseven@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+opencv-python = "^4.4.0"
+firebase-admin = "^4.3.0"
+azure-cognitiveservices-vision-face="^0.4.1"
+twilio="6.45.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
