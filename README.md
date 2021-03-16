@@ -1,6 +1,6 @@
 # beat-the-culprit
 
-#dependencies:
+# dependencies:
      requests
      open-cv
      firebase-admin
