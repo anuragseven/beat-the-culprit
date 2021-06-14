@@ -5,20 +5,20 @@ import json
 def send_text_to_authority(name):
     myobj = {
         'Body': "CRIMINAL DETECTED : {} ".format(name),
-        'From': '+18155818608',
-        'To': '+91 9340000871',
+        'From': '',
+        'To': '',
 
     }
-    requests.post('https://api.twilio.com/2010-04-01/Accounts/AC7d1485213feabb7e5aeba64a5ae15ac6/Messages'
+    requests.post('https://api.twilio.com/2010-04-01/Accounts/""/Messages'
                   '.json',
-                  auth=('AC7d1485213feabb7e5aeba64a5ae15ac6', 'b94fa2c63bb040b75f1c42b3a8bc2709'),
+                  auth=('', ''),
                   data=myobj)
 
 
 def azure_detect(image):
     url = 'https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true'
     headers = {"Content-Type": "application/octet-stream",
-               "Ocp-Apim-Subscription-Key": '8e7f8b81cb1c44fdba666fae65525a46'}
+               "Ocp-Apim-Subscription-Key": ''}
 
     response = requests.post(url=url, headers=headers, data=image)
     dict_obj = json.loads(response.text)
@@ -29,7 +29,7 @@ def azure_detect(image):
 
 def azure_identify(detected_face_id):
     url = 'https://westus.api.cognitive.microsoft.com/face/v1.0/identify'
-    headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': '8e7f8b81cb1c44fdba666fae65525a46'}
+    headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': ''}
     request_body = {"faceIds": [
         detected_face_id
     ],
@@ -48,10 +48,10 @@ def azure_identify(detected_face_id):
 
 
 def firebase_user_sign_in():
-    url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCe' \
-          '-vZ2pPxg5h4y1LUTD76Wi9ZGktAoAF8'
+    url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' 
+       
 
-    data = {'email': 'facerecognitionproject1@gmail.com', 'password': 'BeatTheCulprits', 'returnSecureToken': 'true'}
+    data = {'email': '', 'password': '', 'returnSecureToken': 'true'}
     response = requests.post(url=url, data=data)
     dict_obj = json.loads(response.text)
     id_token = dict_obj['idToken']
